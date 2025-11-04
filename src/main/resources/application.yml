@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: investment-agent
+  threads:
+    virtual:
+      enabled: true
+embabel:
+  models:
+    default-llm: gemini-2.5-flash
+spring.ai.vertex.ai.gemini:
+  location: europe-north1
+  chat:
+    options:
+      model: gemini-2.5-flash
+      temperature: 0.2
+      max-output-tokens: 1024

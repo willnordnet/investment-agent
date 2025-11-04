@@ -1,0 +1,15 @@
+###
+
+# curl -X POST http://localhost:8080/agent/chat
+#
+#  -H "Content-Type: application/json"
+#-d '{"message":"who is Micheal Jodan"}'
+POST http://localhost:8080/agent/chat
+Content-Type: application/json
+
+{
+  "message": "who is Micheal Jordan"
+}
+
+###
+
