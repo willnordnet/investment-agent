@@ -1,3 +1,94 @@
+POST http://localhost:8080/agent/portfolios
+Content-Type: application/json
+
+{
+  "portfolio": {
+    "instruments": [
+      {
+        "name": "Länsförsäkringar Global Index",
+        "weight": "49.15%"
+      },
+      {
+        "name": "Nordnet Global Index 125",
+        "weight": "6.10%"
+      },
+      {
+        "name": "Nordnet USA Index",
+        "weight": "5.96%"
+      },
+      {
+        "name": "Swedbank Robur Access Asien A",
+        "weight": "4.90%"
+      },
+      {
+        "name": "Spiltan Aktiefond Investmentbolag",
+        "weight": "4.85%"
+      },
+      {
+        "name": "Nordnet Teknologi Index",
+        "weight": "4.75%"
+      },
+      {
+        "name": "Nordnet Sverige Index",
+        "weight": "3.66%"
+      },
+      {
+        "name": "Nordnet AB",
+        "weight": "2.87%"
+      },
+      {
+        "name": "Swedbank Robur Access Edge Japan A",
+        "weight": "2.71%"
+      },
+      {
+        "name": "Nordnet Norge Indeks",
+        "weight": "2.57%"
+      },
+      {
+        "name": "Nordnet Tillväxtmarknad Index",
+        "weight": "2.10%"
+      },
+      {
+        "name": "Nordnet Europa Index",
+        "weight": "2.05%"
+      },
+      {
+        "name": "Spiltan Räntefond Sverige",
+        "weight": "1.94%"
+      },
+      {
+        "name": "Xetra-Gold ETC",
+        "weight": "1.70%"
+      },
+      {
+        "name": "Franklin FTSE China UCITS ETF",
+        "weight": "1.36%"
+      },
+      {
+        "name": "Xtrackers MSCI World Energy UCITS ETF 1C",
+        "weight": "1.20%"
+      },
+      {
+        "name": "Alphabet A",
+        "weight": "0.92%"
+      },
+      {
+        "name": "Kassa",
+        "weight": "1.00%"
+      },
+      {
+        "name": "AMF Aktiefond Småbolag",
+        "weight": "0.26%"
+      },
+      {
+        "name": "Hemnet Group AB",
+        "weight": "0.18%"
+      }
+    ]
+  }
+}
+
+
 ###
 
 # curl -X POST http://localhost:8080/agent/chat

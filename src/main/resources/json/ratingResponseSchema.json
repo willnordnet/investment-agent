@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Rating",
+  "type": "object",
+  "properties": {
+    "overallScore": {
+      "type": "string",
+      "enum": [
+        "EXCELLENT",
+        "GOOD",
+        "AVERAGE",
+        "BELOW_AVERAGE",
+        "POOR"
+      ]
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MODERATE",
+        "HIGH"
+      ]
+    },
+    "diversificationScore": {
+      "type": "string",
+      "enum": [
+        "EXCELLENT",
+        "GOOD",
+        "AVERAGE",
+        "BELOW_AVERAGE",
+        "POOR"
+      ]
+    },
+    "performanceScore": {
+      "type": "string",
+      "enum": [
+        "EXCELLENT",
+        "GOOD",
+        "AVERAGE",
+        "BELOW_AVERAGE",
+        "POOR"
+      ]
+    },
+    "costEfficiencyScore": {
+      "type": "string",
+      "enum": [
+        "EXCELLENT",
+        "GOOD",
+        "AVERAGE",
+        "BELOW_AVERAGE",
+        "POOR"
+      ]
+    },
+    "recommendation": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "overallScore",
+    "riskLevel",
+    "diversificationScore",
+    "performanceScore",
+    "costEfficiencyScore",
+    "recommendation"
+  ]
+}

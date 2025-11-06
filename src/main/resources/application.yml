@@ -13,4 +13,4 @@ spring.ai.vertex.ai.gemini:
     options:
       model: gemini-2.5-flash
       temperature: 0.2
-      max-output-tokens: 1024
+      max-output-tokens: 8192
