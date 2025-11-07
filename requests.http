@@ -3,6 +3,7 @@ Content-Type: application/json
 
 {
   "portfolio": {
+    "amount": "3,000,000",
     "instruments": [
       {
         "name": "Länsförsäkringar Global Index",
@@ -104,3 +105,4 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:8080/agent/proposals

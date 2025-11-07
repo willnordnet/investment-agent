@@ -6,7 +6,10 @@ import com.embabel.agent.core.ProcessOptions;
 import com.embabel.agent.web.rest.AgentProcessStatus;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import me.willgao.agent.investment.service.ProposalService;
 import me.willgao.agent.investment.type.PortfolioRequest;
+import me.willgao.agent.investment.type.PortfolioResponse;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +24,14 @@ import java.util.Map;
 public class InvestmentController {
 
     private final AgentPlatform agentPlatform;
+    public final ProposalService proposalService;
 
 
     @PostMapping("/portfolios")
     public void portfolio(@RequestBody PortfolioRequest request) {
         log.info("Received portfolio: {}", request);
 
+        proposalService.clear();
         var agent = agentPlatform.agents().stream()
             .filter(a -> a.getName().equals("InvestmentAgent"))
             .findFirst()
@@ -54,5 +59,9 @@ public class InvestmentController {
 
     }
 
+    @GetMapping("/proposals")
+    public PortfolioResponse getProposals() {
+        return proposalService.getCurrentPortfolioResponse();
+    }
 
 }

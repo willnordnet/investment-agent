@@ -17,7 +17,7 @@ import java.util.Map;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/agent")
-public class AgentController {
+public class ChatController {
 
     private final AgentPlatform agentPlatform;
 
