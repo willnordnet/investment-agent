@@ -8,8 +8,8 @@
   },
   {
     "name": "Nordnet Global Index 125",
-    "fee": "0.49%",
-    "risk": 7,
+    "fee": "0.41%",
+    "risk": 4,
     "type": "Equity Fund (Leveraged)",
     "currency": "SEK"
   },
@@ -65,7 +65,7 @@
   {
     "name": "Nordnet Norge Indeks",
     "fee": "0.00%",
-    "risk": 6,
+    "risk": 4,
     "type": "Equity Fund",
     "currency": "NOK"
   },
