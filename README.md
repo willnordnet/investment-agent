@@ -66,7 +66,3 @@ The application exposes the following REST API endpoints:
 *   `GET /agent/proposals`: Returns a list of investment proposals.
 
 You can use the `requests.http` file to send requests to the application using a REST client like IntelliJ HTTP Client or VS Code REST Client.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
