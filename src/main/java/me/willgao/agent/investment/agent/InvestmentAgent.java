@@ -103,7 +103,7 @@ public class InvestmentAgent {
             """;
 
         String json = context.ai()
-            .withAutoLlm()
+            .withLlm("gemini-3.0-pro")
             .generateText(String.format(systemPrompt, enrichedPortfolio, profile, ratingSchema));
 
         log.info("Received rating JSON: {}", json);
@@ -123,7 +123,7 @@ public class InvestmentAgent {
             The rating of the user's portfolio is: %s.
             Based on the rating and portfolio %s, propose a diversified portfolio of investment instruments.
             Rules:
-            - Use ONLY the provided instruments
+            - Use ONLY the provided instruments and cash
             - Add all instruments into the list even if you set an instrument's weight to 0.00
             - Explain the reason for each instrument's weight
             - Output minimal raw JSON array (no markdown, no explanation, no spaces or line breaks)
@@ -134,7 +134,7 @@ public class InvestmentAgent {
 
         List<SuggestedInstrument> instruments;
         String json = context.ai()
-            .withAutoLlm()
+            .withLlm("gemini-3.0-pro")
             .generateText(String.format(systemPrompt, rating.recommendation(), enrichedPortfolio));
 
         log.info("Received proposed instruments JSON: {}", json);

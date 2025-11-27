@@ -29,6 +29,23 @@ public class ModelConfig {
     }
 
     @Bean
+    public Llm gemini30Pro() {
+        final var knowledgeCutoffDate = LocalDate.of(2025, 1, 1);
+        final var pricePerMillionInputTokens = 1.25;
+        final var pricePerMillionOutputTokens = 10.00;
+
+        return new Llm(
+            "gemini-3.0-pro",
+            PROVIDER,
+            chatModel,
+            OPTIONS_CONVERTER,
+            knowledgeCutoffDate,
+            List.of(),
+            new PerTokenPricingModel(pricePerMillionInputTokens, pricePerMillionOutputTokens)
+        );
+    }
+
+    @Bean
     public Llm gemini25Pro() {
         final var knowledgeCutoffDate = LocalDate.of(2025, 1, 1);
         final var pricePerMillionInputTokens = 1.25;
