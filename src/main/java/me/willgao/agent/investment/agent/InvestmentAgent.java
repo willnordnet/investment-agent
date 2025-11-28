@@ -102,10 +102,11 @@ public class InvestmentAgent {
             ### ALGORITHM
             Perform the following logic step-by-step before generating output:
             1. **Profile Analysis:** Identify the customer's Risk Tolerance (e.g., Aggressive, Conservative), Time Horizon, and specific constraints (e.g., "No fossil fuels").
+            Instrument with 0 weight should not be considered in the portfolio analysis.
             2. **Portfolio Audit:** specific asset allocation risks and implied volatility of the `Target Portfolio`.
             3. **Gap Analysis:** Compare the Profile vs. the Portfolio. Does the portfolio take too much risk? Too little? Does it violate constraints?
             4. **Evidence Extraction:** specific the exact sentence from the `Customer Profile` that proves your assessment.
-            5. **Compliment**: If the portfolio is well-aligned, provide positive feedback citing specific aspects in the first paragraph.
+            5. **Compliment**: Always provide positive feedback citing specific aspects in the first paragraph.
             
             ### OUTPUT RULES
             - **Format:** Return ONLY a single, valid, minified JSON object matching the `Required JSON Schema`.
