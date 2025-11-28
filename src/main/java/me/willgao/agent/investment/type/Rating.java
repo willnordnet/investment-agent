@@ -19,7 +19,9 @@ public record Rating(
 
     enum RiskLevel {
         LOW,
+        MODERATE_LOW,
         MODERATE,
+        MODERATE_HIGH,
         HIGH
     }
 }

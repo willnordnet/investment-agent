@@ -1,142 +1,212 @@
 [
   {
     "name": "Länsförsäkringar Global Index",
-    "fee": "0.20%",
+    "fee": "0.22%",
     "risk": 4,
-    "type": "Equity Fund",
-    "currency": "SEK"
-  },
-  {
-    "name": "Nordnet Global Index 125",
-    "fee": "0.41%",
-    "risk": 4,
-    "type": "Equity Fund (Leveraged)",
-    "currency": "SEK"
-  },
-  {
-    "name": "Nordnet USA Index",
-    "fee": "0.25%",
-    "risk": 4,
-    "type": "Equity Fund",
-    "currency": "EUR"
-  },
-  {
-    "name": "Swedbank Robur Access Asien A",
-    "fee": "0.29%",
-    "risk": 4,
-    "type": "Equity Fund",
+    "type": "Equity Fund (Global Index)",
     "currency": "SEK"
   },
   {
     "name": "Spiltan Aktiefond Investmentbolag",
-    "fee": "0.20%",
+    "fee": "0.21%",
     "risk": 4,
-    "type": "Equity Fund",
+    "type": "Equity Fund (Investment Companies)",
     "currency": "SEK"
   },
   {
-    "name": "Nordnet Teknologi Index",
+    "name": "Nordnet Global Index 125",
     "fee": "0.49%",
-    "risk": 6,
-    "type": "Equity Fund",
-    "currency": "EUR"
+    "risk": 4,
+    "type": "Equity Fund (Leveraged Global)",
+    "currency": "SEK"
   },
   {
     "name": "Nordnet Sverige Index",
     "fee": "0.00%",
     "risk": 5,
-    "type": "Equity Fund",
+    "type": "Equity Fund (Sweden Index)",
     "currency": "SEK"
   },
   {
-    "name": "Nordnet AB",
-    "fee": "N/A (Trading Fees)",
-    "risk": "N/A (Stock)",
-    "type": "Stock",
-    "currency": "SEK"
-  },
-  {
-    "name": "Swedbank Robur Access Edge Japan A",
+    "name": "Länsförsäkringar Sverige Index",
     "fee": "0.22%",
-    "risk": 4,
-    "type": "Equity Fund",
+    "risk": 5,
+    "type": "Equity Fund (Sweden Index)",
     "currency": "SEK"
   },
   {
-    "name": "Nordnet Norge Indeks",
-    "fee": "0.00%",
+    "name": "Storebrand Global Plus A",
+    "fee": "0.32%",
     "risk": 4,
-    "type": "Equity Fund",
-    "currency": "NOK"
+    "type": "Equity Fund (Global ESG)",
+    "currency": "SEK"
+  },
+  {
+    "name": "AMF Aktiefond Global",
+    "fee": "0.48%",
+    "risk": 4,
+    "type": "Equity Fund (Global)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Spiltan Globalfond Investmentbolag",
+    "fee": "0.54%",
+    "risk": 4,
+    "type": "Equity Fund (Global Investment Companies)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Swedbank Robur Technology A",
+    "fee": "1.42%",
+    "risk": 5,
+    "type": "Equity Fund (Tech Sector)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Nordnet Teknologi Index",
+    "fee": "0.40%",
+    "risk": 6,
+    "type": "Equity Fund (Tech Sector)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Nordnet USA Index ESG",
+    "fee": "0.20%",
+    "risk": 5,
+    "type": "Equity Fund (USA Index)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Storebrand USA A SEK",
+    "fee": "0.21%",
+    "risk": 5,
+    "type": "Equity Fund (USA Index)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Nordnet Europa Index ESG",
+    "fee": "0.20%",
+    "risk": 5,
+    "type": "Equity Fund (Europe Index)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Länsförsäkringar Tillväxtmarknad Index A",
+    "fee": "0.54%",
+    "risk": 4,
+    "type": "Equity Fund (Emerging Markets)",
+    "currency": "SEK"
   },
   {
     "name": "Nordnet Tillväxtmarknad Index",
     "fee": "0.40%",
     "risk": 4,
-    "type": "Equity Fund",
+    "type": "Equity Fund (Emerging Markets)",
     "currency": "SEK"
   },
   {
-    "name": "Nordnet Europa Index",
-    "fee": "0.20%",
+    "name": "Handelsbanken Global Småbolag Index Criteria",
+    "fee": "0.67%",
     "risk": 4,
-    "type": "Equity Fund",
-    "currency": "SEK"
-  },
-  {
-    "name": "Spiltan Räntefond Sverige",
-    "fee": "0.10%",
-    "risk": 2,
-    "type": "Bond Fund",
-    "currency": "SEK"
-  },
-  {
-    "name": "Xetra-Gold ETC",
-    "fee": "0.30%",
-    "risk": 6,
-    "type": "ETC (Commodity)",
-    "currency": "EUR"
-  },
-  {
-    "name": "Franklin FTSE China UCITS ETF",
-    "fee": "0.19%",
-    "risk": 5,
-    "type": "ETF",
-    "currency": "USD"
-  },
-  {
-    "name": "Xtrackers MSCI World Energy UCITS ETF 1C",
-    "fee": "0.25%",
-    "risk": 5,
-    "type": "ETF",
-    "currency": "USD"
-  },
-  {
-    "name": "Alphabet A",
-    "fee": "N/A (Trading Fees)",
-    "risk": "N/A (Stock)",
-    "type": "Stock",
-    "currency": "USD"
-  },
-  {
-    "name": "Kassa",
-    "fee": "0.00%",
-    "risk": 1,
-    "type": "Cash",
+    "type": "Equity Fund (Global Small Cap)",
     "currency": "SEK"
   },
   {
     "name": "AMF Aktiefond Småbolag",
     "fee": "0.40%",
     "risk": 5,
-    "type": "Equity Fund",
+    "type": "Equity Fund (Small Cap)",
     "currency": "SEK"
   },
   {
-    "name": "Hemnet Group AB",
+    "name": "Swedbank Robur Access Asien A",
+    "fee": "0.35%",
+    "risk": 4,
+    "type": "Equity Fund (Asia Index)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Swedbank Robur Access Edge Japan A",
+    "fee": "0.22%",
+    "risk": 4,
+    "type": "Equity Fund (Japan Index)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Nordnet One Offensiv",
+    "fee": "0.34%",
+    "risk": 4,
+    "type": "Allocation Fund (Aggressive)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Nordnet One Balanserad",
+    "fee": "0.34%",
+    "risk": 3,
+    "type": "Allocation Fund (Balanced)",
+    "currency": "SEK"
+  },
+  {
+    "name": "AMF Räntefond Lång",
+    "fee": "0.10%",
+    "risk": 2,
+    "type": "Bond Fund (Long-Term)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Spiltan Räntefond Sverige",
+    "fee": "0.10%",
+    "risk": 2,
+    "type": "Bond Fund (Short-Term)",
+    "currency": "SEK"
+  },
+  {
+    "name": "Nordnet Norge Indeks",
+    "fee": "0.00%",
+    "risk": 6,
+    "type": "Equity Fund (Norway Index)",
+    "currency": "NOK"
+  },
+  {
+    "name": "Nordnet Suomi Indeksi",
+    "fee": "0.00%",
+    "risk": 6,
+    "type": "Equity Fund (Finland Index)",
+    "currency": "EUR"
+  },
+  {
+    "name": "Nordnet Danmark Indeks",
+    "fee": "0.20%",
+    "risk": 5,
+    "type": "Equity Fund (Denmark Index)",
+    "currency": "DKK"
+  },
+  {
+    "name": "Investor B",
     "fee": "N/A (Trading Fees)",
     "risk": "N/A (Stock)",
-    "type": "Stock",
+    "type": "Stock (Investment Company)",
     "currency": "SEK"
+  },
+  {
+    "name": "Franklin FTSE China UCITS ETF",
+    "fee": "0.19%",
+    "risk": 5,
+    "type": "ETF (China Index)",
+    "currency": "USD"
+  },
+  {
+    "name": "Xtrackers MSCI World Energy UCITS ETF 1C",
+    "fee": "0.25%",
+    "risk": 5,
+    "type": "ETF (Global Energy)",
+    "currency": "USD"
+  },
+  {
+    "name": "Xetra-Gold ETC",
+    "fee": "0.00%",
+    "risk": 6,
+    "type": "ETC (Commodity/Gold)",
+    "currency": "EUR"
   }
 ]

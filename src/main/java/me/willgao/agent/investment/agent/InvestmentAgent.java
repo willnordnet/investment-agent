@@ -91,20 +91,34 @@ public class InvestmentAgent {
     @Action(description = "rate")
     public Rating rate(Portfolio it, EnrichedPortfolio enrichedPortfolio, CustomerProfile profile, OperationContext context) throws Exception {
         String systemPrompt = """
-            You are an expert financial advisor.
-            Rate the quality of the provided portfolio.
-            Use the customer profile to assess the suitability of the portfolio.
-            Portfolio: %s.
-            Customer profile: %s.
-            Respond with only minimal raw json according to the schema: %s.
-            State the reason based on the portfolio and customer profile.
-            Quote the facts from the customer profile to support your rating.
-            Output minimal raw JSON (no markdown, no explanation, no spaces or line breaks)
-            """;
+            ### ROLE
+            You are an Expert Investment Suitability Engine. Your objective is to audit the alignment between a specific investment portfolio and a customer's financial profile.
+            
+            ### INPUT DATA
+            1. **Target Portfolio:** %s
+            2. **Customer Profile:** %s
+            3. **Required JSON Schema:** %s
+            
+            ### ALGORITHM
+            Perform the following logic step-by-step before generating output:
+            1. **Profile Analysis:** Identify the customer's Risk Tolerance (e.g., Aggressive, Conservative), Time Horizon, and specific constraints (e.g., "No fossil fuels").
+            2. **Portfolio Audit:** specific asset allocation risks and implied volatility of the `Target Portfolio`.
+            3. **Gap Analysis:** Compare the Profile vs. the Portfolio. Does the portfolio take too much risk? Too little? Does it violate constraints?
+            4. **Evidence Extraction:** specific the exact sentence from the `Customer Profile` that proves your assessment.
+            5. **Compliment**: If the portfolio is well-aligned, provide positive feedback citing specific aspects in the first paragraph.
+            
+            ### OUTPUT RULES
+            - **Format:** Return ONLY a single, valid, minified JSON object matching the `Required JSON Schema`.
+            - **Reasoning Field:** Your "reason" value must explicitly contrast the customer's needs against the portfolio's composition.
+            - **Quote Field:** Your "quote" value must be a verbatim substring extracted from the `Customer Profile`.
+            - **Constraints:** No Markdown (```json). No explanatory text outside the JSON object. No whitespace.
+            
+            ### EXECUTE
+            """.formatted(objectMapper.writeValueAsString(enrichedPortfolio), objectMapper.writeValueAsString(profile), ratingSchema);
 
         String json = context.ai()
             .withLlm("gemini-3.0-pro")
-            .generateText(String.format(systemPrompt, enrichedPortfolio, profile, ratingSchema));
+            .generateText(systemPrompt);
 
         log.info("Received rating JSON: {}", json);
 
@@ -119,23 +133,41 @@ public class InvestmentAgent {
     )
     public Proposal propose(Portfolio it, EnrichedPortfolio enrichedPortfolio, Rating rating, OperationContext context) throws JsonProcessingException {
         String systemPrompt = """
-            You are an expert financial advisor.
-            The rating of the user's portfolio is: %s.
-            Based on the rating and portfolio %s, propose a diversified portfolio of investment instruments.
+            ### ROLE
+            You are a Quantitative Portfolio Manager. Your goal is to construct an optimal asset allocation from a fixed universe of instruments.
+            
+            ### INPUT DATA
+            1. **Target Strategy/Rating:** %s
+            2. **Available Instruments Universe:** %s
+            3. **Customer Current Portfolio:** %s
+            4. **Customer Hard Constraints:** %s
+            
+            ### ALGORITHM
+            Based on the rating and current portfolio, propose a diversified portfolio of investment instruments.
             Rules:
-            - Use ONLY the provided instruments and cash
-            - Add all instruments into the list even if you set an instrument's weight to 0.00
-            - Explain the reason for each instrument's weight
+            - Constraint Check: `Customer Hard Constraints` must be strictly followed regardless of other factors.
+            - Evaluate all the provided instruments and cash from the Available Instruments Universe.
+            - Add all customer provided instruments into the response list even if you set an instrument's weight to 0.00.
+            - Explain the reason for each instrument's weight.
+            - Maximum 20 instruments in response.
+            - Active Universe Scanning: specific the `Target Strategy` requirements (e.g., need for hedging, growth, or income).
+            You must scan the entire `Available Instruments Universe` and recommend (assign positive weight to) specific instruments that fill gaps in diversification or risk management, even if they were not explicitly requested.
+            - Strategy Alignment: Distribute weights among the selected instruments. Higher risk strategies should favor equities/volatility; lower risk strategies favor bonds/stablecoins.
+            
+            ### OUTPUT RULES
+            - Return a single JSON Array.
             - Output minimal raw JSON array (no markdown, no explanation, no spaces or line breaks)
-            - Each object: {"name": "...", "weight": 0.00, "reason": "..."}
-            - Weights sum to 100.00
-            - Maximum 20 instruments in response
-            """;
+            - keys: "name", "weight" (float, 2 decimals), "reason" (string).
+            - **Strict Math:** The sum of all "weight" values must be exactly 100.00.
+            - **Format:** Minified JSON only. No markdown.
+            
+            ### EXECUTE
+            """.formatted(rating.recommendation(), objectMapper.writeValueAsString(enrichedInstrumentMap.values()), objectMapper.writeValueAsString(enrichedPortfolio), it.customerInstructions());
 
         List<SuggestedInstrument> instruments;
         String json = context.ai()
             .withLlm("gemini-3.0-pro")
-            .generateText(String.format(systemPrompt, rating.recommendation(), enrichedPortfolio));
+            .generateText(systemPrompt);
 
         log.info("Received proposed instruments JSON: {}", json);
 
