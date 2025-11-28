@@ -4,6 +4,7 @@ import com.embabel.agent.api.annotation.AchievesGoal;
 import com.embabel.agent.api.annotation.Action;
 import com.embabel.agent.api.annotation.Agent;
 import com.embabel.agent.api.common.OperationContext;
+import com.embabel.common.ai.model.LlmOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -117,8 +118,14 @@ public class InvestmentAgent {
             ### EXECUTE
             """.formatted(objectMapper.writeValueAsString(enrichedPortfolio), objectMapper.writeValueAsString(profile), ratingSchema);
 
+
+        var llm = LlmOptions
+            .withModel("gemini-3.0-pro")
+            .withMaxTokens(8192)
+            .withTemperature(0.5);
+
         String json = context.ai()
-            .withLlm("gemini-3.0-pro")
+            .withLlm(llm)
             .generateText(systemPrompt);
 
         log.info("Received rating JSON: {}", json);
@@ -165,9 +172,13 @@ public class InvestmentAgent {
             ### EXECUTE
             """.formatted(rating.recommendation(), objectMapper.writeValueAsString(enrichedInstrumentMap.values()), objectMapper.writeValueAsString(enrichedPortfolio), it.customerInstructions());
 
+        var llm = LlmOptions
+            .withModel("gemini-3.0-pro")
+            .withTemperature(0.2);
+
         List<SuggestedInstrument> instruments;
         String json = context.ai()
-            .withLlm("gemini-3.0-pro")
+            .withLlm(llm)
             .generateText(systemPrompt);
 
         log.info("Received proposed instruments JSON: {}", json);
