@@ -161,6 +161,7 @@ public class InvestmentAgent {
             - Active Universe Scanning: specific the `Target Strategy` requirements (e.g., need for hedging, growth, or income).
             You must scan the entire `Available Instruments Universe` and recommend (assign positive weight to) specific instruments that fill gaps in diversification or risk management, even if they were not explicitly requested.
             - Strategy Alignment: Distribute weights among the selected instruments. Higher risk strategies should favor equities/volatility; lower risk strategies favor bonds/stablecoins.
+            - Respect customer's selected instruments: If the customer already holds certain instruments that align with the target strategy, incorporate them into the proposed allocation with appropriate weights.
             
             ### OUTPUT RULES
             - Return a single JSON Array.
